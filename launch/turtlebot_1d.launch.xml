@@ -43,7 +43,7 @@
     </node>
 
     <!-- Robot Localization nodes-->
-    <node pkg="robot_localization" type="ukf_localization_node_modified" name="ukf" clear_params="true" output="screen">
+    <node pkg="robot_localization" type="ukf_localization_node" name="ukf" clear_params="true" output="screen">
         <!--remap from="odometry/filtered" to="odometry/filtered"/-->
         <!--remap from="set_pose" to="set_pose_self"/-->
         <param name="frequency" value="10"/>
@@ -77,4 +77,5 @@
     <node pkg="tf" type="static_transform_publisher" name="modified_footprint_to_link_tf" args="0 0 0.01 0 0 0 1 base_footprint_kalman base_link_kalman 50"/>
 
     <node pkg="turtlebot" type="sensor_remap.py" name="sensor_remap"/>
+    <!--node pkg="turtlebot" type="sensor_record.py" name="sensor_record"/-->
 </launch>
